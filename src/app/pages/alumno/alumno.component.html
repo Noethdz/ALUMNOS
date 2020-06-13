@@ -1,0 +1,93 @@
+<h1>
+    <small>Nombre del Alumno</small> </h1>
+<hr>
+
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/alumnos">
+      <i class="fa fa-arrow-left"></i>
+      Regresar
+    </button>
+    </div>
+</div>
+
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+
+        <form (ngSubmit)="guardar( f )" #f="ngForm">
+
+            <div class="form-group">
+                <label>Firebase ID</label>
+                <input type="text" class="form-control" placeholder="Firebase ID" [(ngModel)]="alumno.id" name="id" disabled="disabled">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre del alumno" [(ngModel)]="alumno.nombre" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>Apellidos</label>
+                <input type="text" class="form-control" [(ngModel)]="alumno.apellidos" name="apellidos" placeholder="Apellidos del alumno">
+            </div>
+
+            <div class="form-group">
+                <label>Numero de Control</label>
+                <input type="text" class="form-control" [(ngModel)]="alumno.ncontrol" name="ncontrol" placeholder="Numero de Control">
+            </div>
+
+            <div class="form-group">
+                <label>Clave Materia</label>
+                <input type="text" class="form-control" [(ngModel)]="alumno.clavemat" name="clavemat" placeholder="Clave Materia">
+            </div>
+
+            <div class="form-group">
+                <label>Calificacion</label>
+
+                <input type="double" class="form-control" [(ngModel)]="alumno.calificacion" name="calificacion" placeholder="campo requerido" required>
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="form-group">
+                <label></label>
+                <br>
+
+                <button *ngIf="alumno.aprobado" (click)="alumno.aprobado = false" class="btn btn-outline-success w-50" type="button">
+          <i class="fa fa-smile-wink"></i>
+          Participacion
+        </button>
+
+                <button *ngIf="!alumno.aprobado" (click)="alumno.aprobado = true" class="btn btn-outline-danger w-50" type="button">
+            <i class="fa fa-dizzy"></i>
+            Sin participacion
+        </button>
+
+            </div>
+
+
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+          <i class="fa fa-save"></i>
+          Guardar
+        </button>
+            </div>
+
+
+        </form>
+
+
+    </div>
+</div>
